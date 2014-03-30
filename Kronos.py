@@ -6,6 +6,8 @@ from OpenSSL import SSL
 import socket
 ossupport= True
 OS = platform.version()
+import Handlers as H
+
 
 if 'Debian' in OS:
     import Engines.Debian as Ex
@@ -14,11 +16,11 @@ if 'Ubuntu' in OS:
     import Engine.Ubuntu as Ex
     ossupport = False
 
-
-
-
-
-
+LINKS = {
+       'PING':H.Ping,
+       'SETDNS':H.SetDNS
+        }
+     
 
 
 class Security:
@@ -48,6 +50,7 @@ class Security:
 
 class Kronos:
 
+
     def ServerOn(self):
         print "Starting Kronos Manager Server on port"
         from Config import Server,Secret
@@ -76,18 +79,11 @@ class Kronos:
                     Kon.close()
                     break
                 else:
-                    print Command
-                    if Command[1] == 'PING':
-                        Pong = Ex.General().ping()
-                        Kon.send(Pong)
-                    else:
-                        if Command[1] == 'SETDNS':
-                            if len(Command) != 3:
-                                Kon.send("ERROR")
-                            else:
-                                Response = Ex.Config().SetDNS(Command[2])
-                                Kon.send(Response)
-                        
+                    print LINKS[Command[1]]
+                    try:
+                        LINKS[Command[1]](Kon,Ex)
+                    except:
+                      Kon.send('BAD COMMAND')
 
 
 
@@ -97,6 +93,7 @@ class Kronos:
         print "Running SSL/TLS test"
         Security().KeyCheck()
         self.ServerOn()
+    
 
 if __name__ == '__main__':
     Kronos().Start()
