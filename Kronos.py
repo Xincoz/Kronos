@@ -4,6 +4,7 @@ import os
 import platform
 from OpenSSL import SSL
 import socket
+import hashlib
 ossupport= True
 OS = platform.version()
 import Handlers as H
@@ -19,6 +20,8 @@ if 'Ubuntu' in OS:
 LINKS = {
        'PING':H.Ping,
        'SETDNS':H.SetDNS
+       'PWROFF':H.PowerOff
+       'GETSTAT':H.GetStat
         }
      
 
@@ -74,14 +77,14 @@ class Kronos:
                   break
                 Command = Command.strip()
                 Command = Command.split(' ')
-                if Command[0] != Secret:
-                    Kon.send('AUTHFAIL')
+                if hashlib.sha256(Command[0]).hexdigest() != Secret:
+                    Kon.send('Wrong Secret')
                     Kon.close()
                     break
                 else:
                     print LINKS[Command[1]]
                     try:
-                        LINKS[Command[1]](Kon,Ex)
+                        LINKS[Command[1]](Kon,Ex,Command[1:])
                     except:
                       Kon.send('BAD COMMAND')
 
