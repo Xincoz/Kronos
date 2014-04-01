@@ -34,14 +34,14 @@ class Maintain():
          Response = Response + "OS->  " + platform.platform() + "\n"
          Response = Response + "TIME->  " + datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S') + "\n"
          Response = Response + "CPU-> CORES:" + str(psutil.cpu_count()) + "  USAGE:"+str(psutil.cpu_percent())
-         Response = Response + "  PROC:" + str(len(psutil.pids())) + "\n"
+         Response = Response + "%  PROC:" + str(len(psutil.pids())) + "\n"
          Tem = psutil.virtual_memory() 
-         Response = Response + "MEMORY->  TOTAL:" + str(Tem.used+Tem.free)+"    USED:" + str(Tem.used) + "   FREE:" + str(Tem.used)
-         Response = Response + "    USAGE:" + str(Tem.percent) + "\n"
+         Response = Response + "MEMORY->  TOTAL:" + str(Tem.used+Tem.free)+"    USED:" + str(Tem.used) + "   FREE:" + str(Tem.free)
+         Response = Response + "    USAGE:" + str(Tem.percent) + "%\n"
          Tem = psutil.disk_usage('/')
          Response = Response + "DISK->  TOTAL:" + str(Tem.total) + "  USED:" + str(Tem.used)  + "  FREE:" + str(Tem.free)
-         Response = Response + "  USAGE:" + str(Tem.percent) + "\n"
-         retun Response
+         Response = Response + "  USAGE:" + str(Tem.percent) + "%\n"
+         return Response
 
 
          

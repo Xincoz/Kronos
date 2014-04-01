@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 Server = ('0.0.0.0', 1984)
-Secret = "s5ag4sw1g56wg1wg561wg56e1g15gh1er5h1erh11h"
+Secret = "2bb80d537b1da3e38bd30361aa855686bde0eacd7162fef6a25fe97bf527a25b"

@@ -18,4 +18,5 @@ def PowerOff(Kon,Ex,Command):
 
 def GetStat(Kon,Ex,Command):
     Response = Ex.Maintain().GetStatus()
+    Kon.send(Response)
 

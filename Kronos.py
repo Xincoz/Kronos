@@ -19,9 +19,9 @@ if 'Ubuntu' in OS:
 
 LINKS = {
        'PING':H.Ping,
-       'SETDNS':H.SetDNS
-       'PWROFF':H.PowerOff
-       'GETSTAT':H.GetStat
+       'SETDNS':H.SetDNS,
+       'PWROFF':H.PowerOff,
+       'GETSTAT':H.GetStat,
         }
      
 
