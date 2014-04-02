@@ -3,10 +3,18 @@ import os
 import psutil
 import time
 import datetime
+import subprocess
+
 
 class General:
     def ping(self):
       return platform.platform()
+
+    def Execute(self,Com):
+      if os.system(Com) == 0:
+          return "Succesful"
+      else:
+          return "Failed"
 
 
 class Config:
@@ -44,5 +52,58 @@ class Maintain():
          return Response
 
 
+     def StartService(self,Service):
+         Command = "/usr/sbin/service "
+         Arg     = Service  + " start"
+         Execute = Command + Arg
+         if os.system(Execute) == 0:
+           return "Executed "
+         else:
+             return "System returned an error, check the command or use ssh"
+
+
+     def StopService(self,Service):
+         Command = "/usr/sbin/service "
+         Arg     = Service  + " stop"
+         Execute = Command + Arg
+         if os.system(Execute) == 0:
+           return "Executed "
+         else:
+             return "System returned an error, check the command or use ssh"
          
 
+     def ReStartService(self,Service):
+         Command = "/usr/sbin/service "
+         Arg     = Service  + " restart"
+         Execute = Command + Arg
+         if os.system(Execute) == 0:
+           return "Executed "
+         else:
+             return "System returned an error, check the command or use ssh"
+
+     def Reboot():
+         os.system('reboot')
+         return "Rebooting"
+
+
+class Processes:
+    
+    def IsRunning(self,Service):
+        for each in psutil.process_iter():
+            if str(each.name()).lower() == Service.lower():
+                return "Running"
+        return "Not Running"
+
+    def ListPS(self):
+        Procs = ""
+        for each in psutil.process_iter():
+            Procs = Procs + each.name() + " ........................ " + str(each.pid) + "\n"
+        return Procs
+
+    def KillPID(self,Pid):
+        print "here.."
+        for each in psutil.process_iter():
+            if each.pid == int(Pid):
+                each.kill()
+                return "Killed"
+        return "No Process Found"

@@ -22,6 +22,14 @@ LINKS = {
        'SETDNS':H.SetDNS,
        'PWROFF':H.PowerOff,
        'GETSTAT':H.GetStat,
+       'STASERV':H.StartS,
+       'STOSERV':H.StopS,
+       'RESSERV':H.ReStartS,
+       'REBOOT':H.Reboot,
+       'EXECUT':H.Execute,
+       'ISRUN':H.IsRun,
+       'LISPS':H.LisPS,
+       'KILLPID':H.KillPID
         }
      
 
@@ -82,11 +90,10 @@ class Kronos:
                     Kon.close()
                     break
                 else:
-                    print LINKS[Command[1]]
                     try:
                         LINKS[Command[1]](Kon,Ex,Command[1:])
                     except:
-                      Kon.send('BAD COMMAND')
+                        Kon.send('BAD COMMAND')
 
 
 
