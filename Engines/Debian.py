@@ -101,9 +101,14 @@ class Processes:
         return Procs
 
     def KillPID(self,Pid):
-        print "here.."
         for each in psutil.process_iter():
             if each.pid == int(Pid):
                 each.kill()
                 return "Killed"
         return "No Process Found"
+    def KillPS(self,Process):
+        for each in psutil.process_iter():
+            if each.name().lower() == Process.lower():
+                each.kill()
+                return "Killed"
+        return "No such Process"

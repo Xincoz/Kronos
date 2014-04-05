@@ -68,5 +68,10 @@ def LisPS(Kon,Ex,Command):
 
 def KillPID(Kon,Ex,Command):
     print "lo here"
-    Response = Ex.Process0().KillPID(Command[1])
+    Response = Ex.Processes().KillPID(Command[1])
+    print Response
+    Kon.send(Response)
+
+def KillPS(Kon,Ex,Command):
+    Response = Ex.Processes().KillPS(Command[1])
     Kon.send(Response)

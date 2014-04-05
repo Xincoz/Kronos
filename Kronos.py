@@ -29,7 +29,8 @@ LINKS = {
        'EXECUT':H.Execute,
        'ISRUN':H.IsRun,
        'LISPS':H.LisPS,
-       'KILLPID':H.KillPID
+       'KILLPID':H.KillPID,
+       'KILLPS':H.KillPS
         }
      
 
@@ -92,7 +93,8 @@ class Kronos:
                 else:
                     try:
                         LINKS[Command[1]](Kon,Ex,Command[1:])
-                    except:
+                    except Exception,e:
+                        print e
                         Kon.send('BAD COMMAND')
 
 
