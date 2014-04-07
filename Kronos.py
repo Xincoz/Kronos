@@ -87,7 +87,7 @@ class Kronos:
                 Command = Command.strip()
                 Command = Command.split(' ')
                 if hashlib.sha256(Command[0]).hexdigest() != Secret:
-                    Kon.send('Wrong Secret')
+                    Kon.send('BAD SECRET')
                     Kon.close()
                     break
                 else:
