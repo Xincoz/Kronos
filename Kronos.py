@@ -75,7 +75,7 @@ class Kronos:
         KServ.bind(Server)
         print "Listening..."
         while True:
-            KServ.listen(1)
+            KServ.listen(5)
             (Kon, address) = KServ.accept()
             print "We have connection.....",
             print address

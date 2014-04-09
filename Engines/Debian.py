@@ -106,9 +106,11 @@ class Processes:
                 each.kill()
                 return "Killed"
         return "No Process Found"
+   
     def KillPS(self,Process):
+        Flag = "No Such Process"
         for each in psutil.process_iter():
             if each.name().lower() == Process.lower():
                 each.kill()
-                return "Killed"
-        return "No such Process"
+                Flag = "Killed"
+            return Flag
