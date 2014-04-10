@@ -113,4 +113,4 @@ class Processes:
             if each.name().lower() == Process.lower():
                 each.kill()
                 Flag = "Killed"
-            return Flag
+        return Flag
