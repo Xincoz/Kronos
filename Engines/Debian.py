@@ -36,6 +36,7 @@ class Config:
 class Maintain():
      def Off(self):
        os.system('poweroff')
+       return "Shutting Down"
 
      def GetStatus(self):
          Response = ""
@@ -81,7 +82,7 @@ class Maintain():
          else:
              return "System returned an error, check the command or use ssh"
 
-     def Reboot():
+     def Reboot(self):
          os.system('reboot')
          return "Rebooting"
 
