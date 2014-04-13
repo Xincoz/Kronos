@@ -94,8 +94,8 @@ class Kronos:
                 else:
                     try:
                         LINKS[Command[1]](Kon,Ex,Command[1:])
-                    except Exception,e:
-                        print e
+                    except:
+                        
                         Kon.send('BAD COMMAND')
 
 

@@ -5,10 +5,11 @@ def Ping(Kon,Ex,Command):
 
 
 def SetDNS(Kon,Ex,Command):
-    if len(Command)!=3:
+    if len(Command)!=2:
         Kon.send("BAD COMMAND")
     else:
-        Response = Ex.SetDNS(Command[1])
+        Response = Ex.Config().SetDNS(Command[1])
+        Kon.send(Response)
 
 
 def PowerOff(Kon,Ex,Command):

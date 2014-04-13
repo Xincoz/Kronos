@@ -58,7 +58,7 @@ class Maintain():
          Arg     = Service  + " start"
          Execute = Command + Arg
          if os.system(Execute) == 0:
-           return "Executed "
+           return "Executed"
          else:
              return "System returned an error, check the command or use ssh"
 
@@ -68,7 +68,7 @@ class Maintain():
          Arg     = Service  + " stop"
          Execute = Command + Arg
          if os.system(Execute) == 0:
-           return "Executed "
+           return "Executed"
          else:
              return "System returned an error, check the command or use ssh"
          
@@ -78,7 +78,7 @@ class Maintain():
          Arg     = Service  + " restart"
          Execute = Command + Arg
          if os.system(Execute) == 0:
-           return "Executed "
+           return "Executed"
          else:
              return "System returned an error, check the command or use ssh"
 
