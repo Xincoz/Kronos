@@ -1,8 +1,18 @@
 # -*- coding: utf-8 -*-
 #Kronos - 0.1 [Abstract Anion] - Alpha
-#Copyright Blaise M Crowly 2014 - All rights reserved
+#Copyright (C) 2014 Blaise M Crowly  - All rights reserved
 #Created at Xincoz [xincoz.com]
 #GPL v3
+
+"""This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.)"""
+
+"""This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details."""
 
 #Import necessary modules
 import sys
@@ -43,7 +53,7 @@ LINKS = {
        'PWROFF':H.PowerOff, #Power Off system
        'GETSTAT':H.GetStat, #Get the machine status of this system
        'STASERV':H.StartS,  #Start a service
-       'STOSERV':H.StopS    #Stop a service
+       'STOSERV':H.StopS,    #Stop a service
        'RESSERV':H.ReStartS,#Restart a service
        'REBOOT':H.Reboot,   #Reboot system
        'EXECUT':H.Execute,  #Execute a command
@@ -130,8 +140,11 @@ class Kronos:
 #Start function to start up the server
     def Start(self):
         os.system('clear')
-        print "Kronos - Manager Alpha 0.1 By Blaise M Crowly.\n Copyright  Xincoz 2014. All Rights Reserved | xincoz.com"
-        print "This is a free software and comes with no guarantees to the extend permitted by law."
+        print "Kronos - Manager Alpha 0.1 By Xincoz.\nCopyright   2014 Blaise M Crowly. All Rights Reserved | xincoz.com"
+        print "This program is distributed in the hope that it will be useful,"
+        print "but WITHOUT ANY WARRANTY; without even the implied warranty of"
+        print "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the"
+        print "GNU General Public License (v3.0) for more details.\n\n"
         print "Running SSL/TLS test"
         Security().KeyCheck()
         self.ServerOn()
