@@ -1,3 +1,11 @@
+# -*- coding: utf-8 -*-
+#Kronos - 0.1 [Abstract Anion] - Alpha
+#Copyright Blaise M Crowly 2014 - All rights reserved
+#Created at Xincoz [xincoz.com]
+#GPL v3
+
+
+#Import required modules
 import platform
 import os
 import psutil
@@ -5,19 +13,24 @@ import time
 import datetime
 import subprocess
 
-
+#General class to handle generala operation
 class General:
+    #Ping handles the PING request
     def ping(self):
-      return platform.platform()
+      #Ping responds with the platform information
+      return platform.platform()u
 
+
+    #Execute executes the given command
     def Execute(self,Com):
       if os.system(Com) == 0:
           return "Succesful"
       else:
           return "Failed"
 
-
+#Config class contains tools to edit the system configurations
 class Config:
+    #SetDNS sets the DNS values in resolv.conf
     def SetDNS(self,DNS):
       DNS = DNS.split(',')
       Conf = ""
@@ -33,11 +46,14 @@ class Config:
       except:
          return "ERROR : Could not update resolv file"
 
+#Maintenance class contain tools related to system maintenance
 class Maintain():
+     #Shutsdown the system
      def Off(self):
        os.system('poweroff')
        return "Shutting Down"
 
+     #Gets system information using psutil and return it
      def GetStatus(self):
          Response = ""
          Response = Response + "OS->  " + platform.platform() + "\n"
@@ -52,7 +68,7 @@ class Maintain():
          Response = Response + "  USAGE:" + str(Tem.percent) + "%\n"
          return Response
 
-
+      #Start a service
      def StartService(self,Service):
          Command = "/usr/sbin/service "
          Arg     = Service  + " start"
@@ -62,7 +78,7 @@ class Maintain():
          else:
              return "System returned an error, check the command or use ssh"
 
-
+     #Stop a service
      def StopService(self,Service):
          Command = "/usr/sbin/service "
          Arg     = Service  + " stop"
@@ -72,7 +88,7 @@ class Maintain():
          else:
              return "System returned an error, check the command or use ssh"
          
-
+     #Restart a service
      def ReStartService(self,Service):
          Command = "/usr/sbin/service "
          Arg     = Service  + " restart"
@@ -82,32 +98,37 @@ class Maintain():
          else:
              return "System returned an error, check the command or use ssh"
 
+
+    #Reboot the system
      def Reboot(self):
          os.system('reboot')
          return "Rebooting"
 
-
+#Processes class contain tools to manage the processes
 class Processes:
-    
+    #Responds after checking is a said process is runnign on the system
     def IsRunning(self,Service):
         for each in psutil.process_iter():
             if str(each.name()).lower() == Service.lower():
-                return "Running"
+                return "Running @ " + each.pid
         return "Not Running"
 
+
+    #responds with a list of all running processes
     def ListPS(self):
         Procs = ""
         for each in psutil.process_iter():
             Procs = Procs + each.name() + " ........................ " + str(each.pid) + "\n"
         return Procs
 
+    #Kills the process with the given PID
     def KillPID(self,Pid):
         for each in psutil.process_iter():
             if each.pid == int(Pid):
                 each.kill()
                 return "Killed"
         return "No Process Found"
-   
+   #Kills all instances of the process with the given name
     def KillPS(self,Process):
         Flag = "No Such Process"
         for each in psutil.process_iter():
