@@ -14,6 +14,11 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details."""
 
+##########################################################################
+#Engine file for Debian                                                  #
+##########################################################################
+
+
 #Import required modules
 import platform
 import os
@@ -119,7 +124,7 @@ class Processes:
     def IsRunning(self,Service):
         for each in psutil.process_iter():
             if str(each.name()).lower() == Service.lower():
-                return "Running @ " + each.pid
+                return "Running @ " + str(each.pid)
         return "Not Running"
 
 
