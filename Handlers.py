@@ -14,6 +14,14 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details."""
 
+#####################################################################
+# This module contains separate fucntions to handle every possible  #
+# incoming request, the incoming requests are processed and proper  #
+# calls to the functions in the Engine modules are made.            #
+#####################################################################
+
+
+
 #Handler to handle PING request
 def Ping(Kon,Ex,Command):
     #Engine call

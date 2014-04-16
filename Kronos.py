@@ -161,7 +161,8 @@ class Kronos:
     
 #starts here
 if __name__ == '__main__':
-    if sys.argv[1] == '--gen-secret':
+    if len(sys.argv) > 1:
+      if sys.argv[1] == '--gen-secret':
         if len(sys.argv) == 3:
           print "Secret Hash : " + hashlib.sha256(sys.argv[2]).hexdigest() + "  - Replace the hash in Config.py with this"
           exit()

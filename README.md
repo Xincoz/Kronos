@@ -14,7 +14,20 @@ Ubuntu
 Requirements
 -------------
 psutil - Is used to handle the processes
-$ pip install psutil
+    pip install psutil
+
+
+
+INSTALLATION & TUTORIALS
+-------------------------
+We have detailed installation instructions and tutorials at:
+<http://www.xincoz.com/Kronos/kronos.html>
+
+To Be Done
+-----------
+Few things we hope to get done.
+* Improve robustness
+* Add more functionalities 
 
 
 
