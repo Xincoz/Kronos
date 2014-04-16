@@ -23,6 +23,18 @@ INSTALLATION & TUTORIALS
 We have detailed installation instructions and tutorials at:
 <http://www.xincoz.com/Kronos/kronos.html>
 
+
+
+IRC & Mailing List
+------------------
+IRC: #KronosProject at freenode
+
+Mailing List: kronos@librelist.com 
+
+Kronos Command : <https://github.com/Xincoz/Kronos-Command>
+
+
+
 To Be Done
 -----------
 Few things we hope to get done.
