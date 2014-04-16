@@ -14,6 +14,15 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details."""
 
+########################################################################
+# The main program that starts a TCP server and listens for incoming   #
+# Connections and  requests are sorted and call for the right handler  #
+# is made depending on the request. The secret is also checked with the#
+# hash in the config file.                                             #
+########################################################################
+
+
+
 #Import necessary modules
 import sys
 import os
@@ -132,7 +141,8 @@ class Kronos:
                     try:
                         #Invoke handler using the Link dictionary
                         LINKS[Command[1]](Kon,Ex,Command[1:])
-                    except:
+                    except Exception,e:
+                        print e
                         #Respond bad command if the send request do not fit
                         Kon.send('BAD COMMAND')
 
@@ -151,6 +161,13 @@ class Kronos:
     
 #starts here
 if __name__ == '__main__':
+    if sys.argv[1] == '--gen-secret':
+        if len(sys.argv) == 3:
+          print "Secret Hash : " + hashlib.sha256(sys.argv[2]).hexdigest() + "  - Replace the hash in Config.py with this"
+          exit()
+        else:
+            print "Usage : --gen-secret <secret>"
+            exit()
     Kronos().Start()
 
 
