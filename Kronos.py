@@ -155,6 +155,8 @@ class Kronos:
         print "but WITHOUT ANY WARRANTY; without even the implied warranty of"
         print "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the"
         print "GNU General Public License (v3.0) for more details.\n\n"
+        
+        print "\n\n []ATTENTION : If you are running this for the first time make sure you deleted the Kronos.key and Kronos.cert files provided for testing. They are not safe. ]\n\n"
         print "Running SSL/TLS test"
         Security().KeyCheck()
         self.ServerOn()
