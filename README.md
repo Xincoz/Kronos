@@ -16,7 +16,9 @@ Requirements
 psutil - Is used to handle the processes
     pip install psutil
 
-
+[ATTENTION]
+------------
+Please delete the Kronos.key and Kronos.cert files once you clone the repository. They are there just for testing. The files are public and hence not safe. 
 
 INSTALLATION & TUTORIALS
 -------------------------
