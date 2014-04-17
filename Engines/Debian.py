@@ -37,10 +37,8 @@ class General:
 
     #Execute executes the given command
     def Execute(self,Com):
-      if os.system(Com) == 0:
-          return "Succesful"
-      else:
-          return "Failed"
+          Output = subprocess.check_output(Com, shell=True)
+          return Output
 
 #Config class contains tools to edit the system configurations
 class Config:
