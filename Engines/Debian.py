@@ -85,31 +85,24 @@ class Maintain():
          Command = "/usr/sbin/service "
          Arg     = Service  + " start"
          Execute = Command + Arg
-         if os.system(Execute) == 0:
-           return "Executed"
-         else:
-             return "System returned an error, check the command or use ssh"
+         Output = subprocess.check_output(Execute, shell=True)
+         return Output
 
      #Stop a service
      def StopService(self,Service):
          Command = "/usr/sbin/service "
          Arg     = Service  + " stop"
          Execute = Command + Arg
-         if os.system(Execute) == 0:
-           return "Executed"
-         else:
-             return "System returned an error, check the command or use ssh"
-         
+         Output = subprocess.check_output(Execute, shell=True)
+         return Output
+     
      #Restart a service
      def ReStartService(self,Service):
          Command = "/usr/sbin/service "
          Arg     = Service  + " restart"
          Execute = Command + Arg
-         if os.system(Execute) == 0:
-           return "Executed"
-         else:
-             return "System returned an error, check the command or use ssh"
-
+         Output = subprocess.check_output(Execute, shell=True)
+         return Output
 
     #Reboot the system
      def Reboot(self):

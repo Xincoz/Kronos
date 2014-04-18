@@ -149,6 +149,11 @@ class Kronos:
 
 #Start function to start up the server
     def Start(self):
+      # if not root...End
+        if not os.geteuid()==0:
+          sys.exit("\nKronos require root access to manage the node.\n")
+          exit(1)
+        
         os.system('clear')
         print "Kronos - Manager Alpha 0.1 By Xincoz.\nCopyright   2014 Blaise M Crowly. All Rights Reserved | xincoz.com"
         print "This program is distributed in the hope that it will be useful,"
