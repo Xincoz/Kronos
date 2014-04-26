@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/xincoz/kronos.png?label=ready&title=Ready)](https://waffle.io/xincoz/kronos)
 Kronos (Manager)
 ================
 
