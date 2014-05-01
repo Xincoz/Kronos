@@ -5,6 +5,8 @@ Kronos (Manager)
 Kronos manager is part of the 'Kronos Project' which allows a administrator to monitor and manage multiple hosts/nodes in a cluster from a single terminal. It consist of a 'command' and 'manager'. Kronos Manager is installed into the individual nodes that need to be controlled.
 
 
+Kronos Command : <https://github.com/Xincoz/Kronos-Command>
+
 Release Noted
 -------------
 Refer the [Release Notes](Release.md) for critical release update on both Kronos and Kronos-Command
@@ -40,7 +42,6 @@ IRC: #KronosProject at freenode
 
 Mailing List: kronos@librelist.com 
 
-Kronos Command : <https://github.com/Xincoz/Kronos-Command>
 
 
 
